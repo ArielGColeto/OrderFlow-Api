@@ -1,0 +1,24 @@
+package com.orderflow.api.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+public class ProdutoController {
+
+    @GetMapping("/produtos")
+    public String saudacao(@RequestParam(value = "nome", required = false)String nome)
+    {
+       String mensagem;
+       if(nome == null)
+       {
+           return "Bem-vindo ao catálogo do OrderFlow!";
+       }
+       else {
+           mensagem = ("Olá " + nome);
+           return mensagem;
+       }
+    }
+}
